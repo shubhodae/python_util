@@ -1,14 +1,17 @@
+from typing_extensions import Self
+
+
 class GraphicObject:
     def __init__(self, color: str = None) -> None:
         self.color = color
-        self.children: list["GraphicObject"] = []
+        self.children: list[Self] = []
         self._name: str = "Group"
 
     @property
     def name(self) -> str:
         return self._name
 
-    def _print(self, items: list["GraphicObject"], depth: int) -> None:
+    def _print(self, items: list[Self], depth: int) -> None:
         items.append("*" * depth)
         if self.color:
             items.append(self.color)
@@ -17,7 +20,7 @@ class GraphicObject:
             child._print(items, depth + 1)
 
     def __str__(self) -> str:
-        items: list["GraphicObject"] = []
+        items: list[Self] = []
         self._print(items, 0)
         return "".join(items)
 
