@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     p = Person("Ram", "24")
     print(p)
-    print(type(p.age))
+    print(type(p.age))  # str
 
     p = PersonModel(name="Ram", age=24)
     print(p)
@@ -27,6 +27,6 @@ if __name__ == "__main__":
     p = PersonModel(name="Ram", age="24")
     print(p)
 
-    print(type(p.age))
+    print(type(p.age))  # int
 
     print(p.model_dump())
